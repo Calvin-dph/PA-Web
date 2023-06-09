@@ -1,0 +1,452 @@
+*{
+    font-family: 'Ubuntu', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+ul{
+    list-style: none;
+}
+.main .active{
+    background-color: #19A7CE;
+    border-radius: 10px;
+}
+.main .active svg{
+    filter: invert(100%) sepia(24%) saturate(1857%) hue-rotate(174deg) brightness(111%) contrast(101%);;
+}
+.mali{
+    font-family: 'Mali';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 58px;
+    line-height: 75px;
+}
+.container-side{
+    display: flex;
+    flex-direction: row;
+    grid-row: 2;
+    min-height: 100vh;
+}
+.sidebar{
+    width: 220px;
+    /* width: 87px; */
+
+    transition: all ease-in-out .3s;
+    height: 100%;
+}
+.abso{
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+
+    position: fixed;
+    background-color: #D9D9D9;
+    width: 220px;
+    height: 100%;
+    justify-content: space-between;
+}
+.abso.hide{
+    width: 87px;
+    transition: all ease-in-out .3s;
+}
+
+
+
+/* Hide Bar */
+.sidebar.hide{
+    width: 87px;
+    transition: all ease-in-out .3s;
+}
+.sidebar.hide .header .logo-banner img{
+    width: 50px;
+}
+.sidebar.hide .line{
+    display: block;
+    height: auto;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.sidebar.hide .contact .contact-us .head-desc{
+    display: none;
+}
+.sidebar.hide .contact .list-contact .item-contact .description{
+    display: none;
+}
+.sidebar.hide .contact .list-contact {
+    text-align: center;
+}
+.sidebar.hide .main .list-item .description{
+    display: none;
+}
+.sidebar.hide .main{
+    padding: 12px;
+    text-align: center;
+}
+.sidebar.hide .main .list-item .icon{
+    margin-right: 0;
+}
+.sidebar.hide .contact{
+    width: 87px;
+}
+
+
+
+.sidebar .line{
+    height: 30px;
+    background-color: #AFD3E2;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.sidebar .line .time{
+    font-size: 12px;
+    font-weight: 400;
+}
+.sidebar .header .logo-banner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 24px 24px 12px 24px;
+}
+.sidebar .header .logo-banner img{
+    width: 100px;
+}
+.sidebar .main{
+    display: flex;    
+    flex-direction: column;
+    gap: 20px;
+    padding: 18px 24px;
+}
+.sidebar .main .list-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    /* width: 212px; */
+    box-sizing: border-box;
+    transition: all ease-in .2s;
+}
+.sidebar .main .list-item:hover{
+    background: #19A7CE;
+    transition: all ease-in .2s;
+}
+.sidebar a{
+    text-decoration: none;
+    width: 120px;
+}
+.sidebar .main .list-item .description{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-align: center;
+    color: #000;
+}
+.sidebar .main .list-item .icon{
+    margin-right: 16px;
+    color: #000;
+    align-items: center;
+}
+.contact{
+    padding: 24px;
+    justify-content: center ;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.contact .list-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-align: left;
+}
+.contact .item-contact{
+    padding: 2px;
+}
+.contact .item-contact span{
+    padding-left: 8px;
+}
+.contact .head-desc{
+    font-size: medium;
+    font-weight: 800;
+}
+.contact .description{
+    font-size: 14px;
+    font-weight: 400;
+}
+.contact .contact-us l{
+    color: #146C94;
+}
+.contact .item-contact a{
+    color: #000;
+}
+
+
+/* toggle menu */
+#menu-button{
+ 
+    width: 32px;
+ 
+    overflow: hidden;
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+#menu-checkbox{
+    display: none;
+}
+#hamburger, #menu-label:after, #menu-label:before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: #000;
+}
+#menu-label:after, #menu-label:before{
+    content: "";
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#menu-label:before{
+    top: 0;
+}
+#menu-label:after{
+    top: 8px;
+}
+#hamburger{
+    top: 16px;
+}
+#hamburger:before{
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: #000;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+#menu-checkbox:checked + #menu-label::before{
+    left: -39px;
+}
+#menu-checkbox:checked + #menu-label::after{
+    left: 39px;
+}
+#menu-checkbox:checked + #menu-label #hamburger::before{
+    animation: moveupthendown 0.8s ease 0.2s forwards,
+    shakeup 0.8s ease 0.2s forwards,
+    shakedown 0.2s ease 0.8s forwards;
+}
+@keyframes moveupthendown{
+    0%{
+        top:0;
+    }
+    50%{
+        top:-27px;
+    }
+    100%{
+        top : -14px;
+    }
+}
+@keyframes shakeup{
+    0%{
+        transform: rotatez(0);
+    }
+    25%{
+        transform: rotateZ(-10deg);
+    }
+    50%{
+        transform: rotateZ(0);
+    }
+    75%{
+        transform: rotatez(10deg);
+    }
+    100%{
+        transform: rotatez(0);
+    }
+}
+@keyframes shakedown{
+    0%{
+        transform: rotatez(0);
+    }
+    80%{
+        transform: rotateZ(3deg);
+    }
+    90%{
+        transform: rotateZ(-3deg);
+    }
+    100%{
+        transform: rotatez(0);
+    }
+}
+
+
+/* Task Bar */
+.rightside{
+    color: #000;
+}
+.navbarr{
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 25px;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    padding-right: 230px;
+}
+.navbarr.hide{
+    padding-right: 100px;
+    transition: all ease-in-out .3s;
+}
+.navbarr a{
+    color: #000;
+}
+.navbarr a p{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 10px;
+    margin: 0;
+    font-weight: 600;
+}
+.navbarr a p span{
+    font-weight: 100;
+}
+.profil{
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+.rightside{
+    display: flex;
+    align-items: center;
+}
+.rightside ul{
+    margin: 0;   
+}
+.rightside ul li .fas{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 13px;
+    padding-left: 4px;
+}
+.navbarr .rightside ul li a{
+    display: flex;
+
+}
+.navbarr .rightside ul li{
+    position: relative;
+}
+.navbarr .rightside .dropdown .fas{
+    display: flex;
+    padding-top: 3px;
+    margin-right: 10px;
+}
+
+
+
+
+/* main */
+.home{
+    margin-top: 100px;
+}
+.main-content{
+    background-color: #ffff;
+    flex-grow: 1;
+}
+.jumbotron{
+    background-color: #F6F1F1;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 2px #8a8a8a;
+
+}
+.jumbotron .background{
+    background-image: url(/img/background-index.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-bottom: 200px;
+    border-radius: 10px;
+}
+.jumbotron .background .mali{
+    font-family: 'Mali';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 58px;
+    line-height: 75px;
+}
+.jumbotron .tag{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+}
+.jumbotron .tag p{
+    margin: 0;
+    font-weight: 600;
+}
+.fas{
+    padding: 10px;
+}
+.jumbotron .tag p span{
+    font-weight: 200;
+}
+
+.head-text{
+    margin: 20px;
+}
+.box{
+    background-color: #F6F1F1;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 3px 2px #8a8a8a;
+    padding: 10px;
+    margin-top: 50px;
+
+    gap: 200px;
+}
+.box .about{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* profile */
+.profile{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 100px;
+    justify-content: space-between;
+}
+.data{
+    display: flex;
+    flex-direction: column;
+}
+.data p{
+    display: inline-block;
+}
+.poto-pp{
+    width: 150px;
+    height: 200px;
+}
+.btnpss{
+    display: flex;
+    justify-content: right;
+    padding: 20px 118px;
+}
+
+
+/* data */
+
